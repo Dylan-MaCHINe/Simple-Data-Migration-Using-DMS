@@ -182,8 +182,14 @@ resource "aws_route_table" "dms_rt" {
 
 # now that we've created our route table and subnets, we need to associate these 2 resources together
 # we'll be creating 2 of these route table association resources
-resource "aws_route_table_association" "dms_rt1a" {
+resource "aws_route_table_association" "dms_rta1" {
+  subnet_id      = aws_subnet.dms_subnet1.id
+  route_table_id = aws_route_table.dms_rt.id
+}
 
+resource "aws_route_table_association" "dms_rta2" {
+  subnet_id      = aws_subnet.dms_subnet2.id
+  route_table_id = aws_route_table.dms_rt.id
 }
 
 # once this is all completed, we initialize our Terraform project in the terminal using the command:
