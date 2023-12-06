@@ -129,7 +129,7 @@ resource "aws_dms_replication_task" "dms_replication_task" {
   })
 }
 
-# after that, we need to create 2 highly available subnets within our VPC and then assign our replicatiin and database instances
+# after that, we need to create 2 highly available subnets within our VPC and then assign our replication and database instances
 # to these subnets so that our replication instance and database instances can communicate with each other and if one goes down,
 # then the other subnet will still be available
 resource "aws_subnet" "dms_subnet1" {
